@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background:  rgb(var(--background-rgb))
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+}
+.textHighlight1{
+  background:linear-gradient(109.6deg, rgba(176,229,208,1) 42%, rgb(210 235 255) 93.6% );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+}
