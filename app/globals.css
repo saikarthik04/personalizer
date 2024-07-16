@@ -24,9 +24,10 @@ body {
   .text-balance {
     text-wrap: balance;
 }
-.textHighlight1{
-  background:linear-gradient(109.6deg, rgba(176,229,208,1) 42%, rgb(210 235 255) 93.6% );
+/* .textgradientHero{
+  background:linear-gradient(to bottom,(var(--tw-gradient-from-position)),(var(--tw-gradient-to-position)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+  line-height: 1.5;
+} */
 }
