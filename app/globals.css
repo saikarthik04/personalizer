@@ -6,6 +6,7 @@
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 0, 0, 0;
   --font-poppins: 'Poppins', sans-serif;
+  --text-color:255, 255, 255
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -30,4 +31,25 @@ body {
   -webkit-text-fill-color: transparent;
   line-height: 1.5;
 } */
+}
+.sidebar-sticky{
+  position: fixed;
+  left: 0px;
+  top: 82px;
+  background: #27272a;
+  z-index: 999;
+}
+.homeScreen{
+  position: absolute;
+  left: 11rem;
+}
+.navbar-sticky{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(2px);
+  background: #090912e8;
+}
+.h-sildebar{
+  height: 89%;
 }
