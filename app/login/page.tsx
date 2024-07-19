@@ -22,7 +22,7 @@ export default function Login() {
                 <Image
                   src="/icons/google-logo.svg"
                   alt="Google Icon" width={20} height={20}
-                  className="absolute h-5 left-20"
+                  className="absolute left-20"
                 />{"Sign In with Google"}
               </button>
             </div>
