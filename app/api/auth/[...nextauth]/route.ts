@@ -1,7 +1,7 @@
 // app/api/auth/[...nextauth]/route.ts
-import { NextRequest, NextResponse } from 'next/server';
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const options = {
   providers: [
@@ -12,12 +12,4 @@ const options = {
   ],
 };
 
-const handler = NextAuth(options);
-
-export async function GET(req: NextRequest) {
-  return handler(req, NextResponse);
-}
-
-export async function POST(req: NextRequest) {
-  return handler(req, NextResponse);
-}
+export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options);
