@@ -1,5 +1,6 @@
 "use client";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 export default function Login() {
   return (
     <>
@@ -18,9 +19,9 @@ export default function Login() {
                 className="w-full bg-white focus:ring-2 hover:bg-black text-black hover:text-white focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center relative "
                 onClick={() => signIn("google", {callbackUrl:'/home'})}
               >
-                <img
+                <Image
                   src="/icons/google-logo.svg"
-                  alt="Google Icon"
+                  alt="Google Icon" width={20} height={20}
                   className="absolute h-5 left-20"
                 />{"Sign In with Google"}
               </button>

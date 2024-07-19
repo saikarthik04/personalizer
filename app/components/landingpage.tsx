@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './navbar'
 import { Playfair_Display} from "next/font/google";
 import Footer from './footer';
+import Image from 'next/image';
 const playfair_Display = Playfair_Display({weight:['400','500','600'], preload:false, subsets:['latin']});
 
 const Landingpage = () => {
@@ -16,8 +17,8 @@ const Landingpage = () => {
       </section>
       <section className="h-screen">
         <div className="col-auto h-2/4 grid grid-cols-2 gap-4">
-        <img src="https://m.media-amazon.com/images/I/A1UVi1LxwcL.png" className="rounded-3xl" alt="youtube-home  " />
-        <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/2400x1600/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/23986637/acastro_STK092_01.jpg" className="rounded-3xl" alt="youtube-home  " />
+        {/* <Image src="https://m.media-amazon.com/images/I/A1UVi1LxwcL.png" width={20} height={20} className="rounded-3xl" alt="youtube-home  " />
+        <Image src="https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/2400x1600/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/23986637/acastro_STK092_01.jpg" className="rounded-3xl" alt="youtube-home  " /> */}
         </div>
       </section>
       {/* <div className="grid grid-cols-3 gap-4">
