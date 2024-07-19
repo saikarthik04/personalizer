@@ -2,7 +2,7 @@
 import { useSession } from "next-auth/react"
 import React from 'react'
 import Landingpage from "./components/landingpage";
-export function main() {
+export function Main() {
   const { data: session, status } = useSession()
   if (status === "authenticated" && session.user) {
   }
@@ -10,4 +10,4 @@ export function main() {
     return <Landingpage/>
   }
 }
-export default main
+export default Main
