@@ -2,7 +2,6 @@ import React from 'react'
 import Navbar from './navbar'
 import { Playfair_Display} from "next/font/google";
 import Footer from './footer';
-import Image from 'next/image';
 const playfair_Display = Playfair_Display({weight:['400','500','600'], preload:false, subsets:['latin']});
 
 const Landingpage = () => {

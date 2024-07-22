@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import ClientSessionProvider from '@/app/ClientSessionProvider'; 
+import ClientSessionProvider from '@/app/ClientSessionProvider';
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -21,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <ClientSessionProvider>{children}</ClientSessionProvider>
+      <ClientSessionProvider >
+          {children}
+        </ClientSessionProvider>
       </body>
     </html>
   );

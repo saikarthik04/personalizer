@@ -1,10 +1,11 @@
-"use client";
-import { useSession } from "next-auth/react";
+"use client"
 import React from "react";
-import Navbar from "../components/navbar";
-import Slidebar from "../components/slidebar";
+import Navbar from "../../components/navbar";
+import Slidebar from "../../components/slidebar";
 import Image from "next/image";
-const Home = () => {
+import { checkSession } from "@/auth/getsession";
+const Home = async () => {
+  const session = await checkSession();
     const handleMouseEnter = (event:any) => {
         event.target.play();
       };
@@ -12,8 +13,8 @@ const Home = () => {
       const handleMouseLeave = (event:any) => {
         event.target.pause();
       };
-  const { data: session, status } = useSession();
-  if (session && status == "authenticated") {
+
+    if (session) {
     return (
       <>
         <div className=" border-b-2 border-white z-10 border-solid navbar-sticky">
@@ -293,6 +294,7 @@ const Home = () => {
       </>
     );
   }
+
 };
 
 export default Home;
