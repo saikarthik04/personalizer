@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  
     images: {
         remotePatterns: [
             {
@@ -9,7 +10,9 @@ const nextConfig = {
               pathname: '/photo/**',
             },
           ],
-      }
+          unoptimized:false,
+      },
+      basePath: '/personalizer',
 };
 
 export default nextConfig;
