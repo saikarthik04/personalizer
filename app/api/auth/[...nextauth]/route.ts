@@ -1,6 +1,5 @@
-import { NextAuthOptions } from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-
 export const authOptions:NextAuthOptions = {
   providers: [
     GoogleProvider({
@@ -10,4 +9,8 @@ export const authOptions:NextAuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
 };
+
+export const dynamic = 'force-static'
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
 
