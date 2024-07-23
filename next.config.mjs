@@ -9,7 +9,7 @@ const nextConfig = {
               pathname: '/photo/**',
             },
           ],
-      }
+      },
     output: "export"
 };
 
