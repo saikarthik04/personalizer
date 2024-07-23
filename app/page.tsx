@@ -1,11 +1,12 @@
 import { checkSession } from "@/auth/getsession";
-import {redirect}  from "next/navigation";
+import Landingpage from "@/components/landingpage";
+import Home from "./home/page";
 const Main = async () => {
   const session = await checkSession();
   if (!session){
-    redirect("/")
+    return (<Landingpage/>)
   }else{
-    redirect("/home")
+    return (<Home/>)
   }
 };
 

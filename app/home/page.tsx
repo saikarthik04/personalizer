@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar";
 import Slidebar from "../../components/slidebar";
 import Image from "next/image";
 import { checkSession } from "@/auth/getsession";
+import Landingpage from "@/components/landingpage";
 const Home = async () => {
   const session = await checkSession();
     const handleMouseEnter = (event:any) => {
@@ -293,8 +294,9 @@ const Home = async () => {
         </div>
       </>
     );
+  }else{
+    return (<><Landingpage/></>)
   }
-
 };
 
 export default Home;
