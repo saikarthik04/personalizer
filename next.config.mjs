@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output:'standalone',
     images: {
         remotePatterns: [
             {
@@ -12,18 +11,7 @@ const nextConfig = {
           ],
           unoptimized:false,
       },
-      basePath: '/personalizer',
-      async exportPathMap(defaultPathMap) {
-        // Exclude dynamic API routes from static export
-        const excludedPaths = ['/api/auth/[...nextauth]'];
-        const pathMap = {};
-        Object.keys(defaultPathMap).forEach((path) => {
-          if (!excludedPaths.includes(path)) {
-            pathMap[path] = defaultPathMap[path];
-          }
-        });
-        return pathMap;
-      },
+      basePath: '/personalizer'
 };
 
 export default nextConfig;
