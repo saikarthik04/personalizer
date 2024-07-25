@@ -5,8 +5,9 @@ import Slidebar from "../../components/slidebar";
 import Image from "next/image";
 import Landingpage from "@/components/landingpage";
 import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 const Home = async () => {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
     const handleMouseEnter = (event:any) => {
         event.target.play();
       };

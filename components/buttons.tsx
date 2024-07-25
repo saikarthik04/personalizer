@@ -20,7 +20,6 @@ export const SigninButton = () => {
   )
 }
 
-
 export const SignOutButton = () => {
   return (
     <>

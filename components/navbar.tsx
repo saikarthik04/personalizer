@@ -1,11 +1,12 @@
+"use client"
 import Link from 'next/link';
 import React from 'react'
 import { FaGithub } from "react-icons/fa6";
 import { Playfair_Display} from "next/font/google";
-import { SignOutButton } from "@/components/buttons";
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 const playfair_Display = Playfair_Display({weight:['400','500','600'], preload:false, subsets:['latin']});
 import { getServerSession } from 'next-auth';
+import { SignOutButton } from './buttons';
 const Navbar = async() => {
   const sessionData = await getServerSession(authOptions);
   console.log(sessionData)
@@ -17,7 +18,7 @@ const Navbar = async() => {
         <FaGithub className='text-2xl bg-black opacity-80 hover:opacity-100'/>
         </Link>
         {sessionData ? (
-         <SignOutButton/>
+          <SignOutButton/>
         ):(
           <Link href="/login" className='font-medium'>login</Link>
         )}

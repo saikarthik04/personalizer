@@ -1,6 +1,6 @@
 import NextAuth, { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { NextRequest, NextResponse } from "next/server";
+// import { NextRequest, NextResponse } from "next/server";
 
 export const authOptions:AuthOptions = {
   providers: [
@@ -9,28 +9,31 @@ export const authOptions:AuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
 
-const authHandler = async (req: NextRequest) => {
-  const adaptedReq = {
-    ...req,
-    query: Object.fromEntries(req.nextUrl.searchParams),
-    cookies: Object.fromEntries(req.cookies),
-  };
+export { handler as GET, handler as POST };
 
-  const res = new NextResponse();
+// const authHandler = async (req: NextRequest) => {
+//   const adaptedReq = {
+//     ...req,
+//     query: Object.fromEntries(req.nextUrl.searchParams),
+//     cookies: Object.fromEntries(req.cookies),
+//   };
 
-  await handler(adaptedReq, res);
+//   const res = new NextResponse();
 
-  return res;
-};
+//   await handler(adaptedReq, res);
 
-export const GET = async (req: NextRequest) => {
-  return await authHandler(req);
-};
+//   return res;
+// };
 
-export const POST = async (req: NextRequest) => {
-  return await authHandler(req);
-};
+// export const GET = async (req: NextRequest) => {
+//   return await authHandler(req);
+// };
+
+// export const POST = async (req: NextRequest) => {
+//   return await authHandler(req);
+// };
