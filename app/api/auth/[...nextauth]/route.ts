@@ -1,8 +1,8 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { NextRequest, NextResponse } from "next/server";
 
-const options = {
+export const authOptions:AuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -11,7 +11,7 @@ const options = {
   ],
 };
 
-const handler = NextAuth(options);
+const handler = NextAuth(authOptions);
 
 const authHandler = async (req: NextRequest) => {
   const adaptedReq = {

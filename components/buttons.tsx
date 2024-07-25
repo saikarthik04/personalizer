@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { signIn } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 export const SigninButton = () => {
   return (
     <>
@@ -19,4 +19,14 @@ export const SigninButton = () => {
     </>
   )
 }
+
+
+export const SignOutButton = () => {
+  return (
+    <>
+      <button onClick={() => signOut({ callbackUrl: '/' })}>Log out</button>
+    </>
+  )
+}
+
 

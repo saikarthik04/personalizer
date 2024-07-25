@@ -3,10 +3,10 @@ import React from "react";
 import Navbar from "../../components/navbar";
 import Slidebar from "../../components/slidebar";
 import Image from "next/image";
-import { checkSession } from "@/auth/getsession";
 import Landingpage from "@/components/landingpage";
+import { getServerSession } from "next-auth";
 const Home = async () => {
-  const session = await checkSession();
+  const session = await getServerSession();
     const handleMouseEnter = (event:any) => {
         event.target.play();
       };
