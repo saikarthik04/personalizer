@@ -11,7 +11,6 @@ const nextConfig = {
           ],
           unoptimized:false,
       },
-      basePath: '/personalizer'
 };
 
 export default nextConfig;
