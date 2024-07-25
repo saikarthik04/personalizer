@@ -5,9 +5,8 @@ const Main = async () => {
   const session = await checkSession();
   if (!session){
     return (<Landingpage/>)
-  }else{
-    return (<Home/>)
   }
+    return (<Home/>)
 };
 
 export default Main;

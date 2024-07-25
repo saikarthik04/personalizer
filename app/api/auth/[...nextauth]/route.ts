@@ -27,10 +27,10 @@ const authHandler = async (req: NextRequest) => {
   return res;
 };
 
- const GET = async (req: NextRequest) => {
+export const GET = async (req: NextRequest) => {
   return await authHandler(req);
 };
 
- const POST = async (req: NextRequest) => {
+export const POST = async (req: NextRequest) => {
   return await authHandler(req);
 };
