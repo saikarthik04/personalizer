@@ -11,11 +11,7 @@ const nextConfig = {
           ],
           unoptimized:false,
       },
-      basePath: '/personalizer',
-      async exportPathMap(defaultPathMap) {
-        delete defaultPathMap['/api/auth/[...nextauth]'];
-        return defaultPathMap;
-      },
+      basePath: '/personalizer'
 };
 
 export default nextConfig;
