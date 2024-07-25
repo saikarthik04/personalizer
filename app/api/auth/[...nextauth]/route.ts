@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 const options = {
@@ -28,10 +27,10 @@ const authHandler = async (req: NextRequest) => {
   return res;
 };
 
-export const GET = async (req: NextRequest) => {
+ const GET = async (req: NextRequest) => {
   return await authHandler(req);
 };
 
-export const POST = async (req: NextRequest) => {
+ const POST = async (req: NextRequest) => {
   return await authHandler(req);
 };
