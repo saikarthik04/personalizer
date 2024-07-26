@@ -7,5 +7,6 @@ export const authOptions: AuthOptions = {
           clientSecret: process.env.GOOGLE_SECRET as string,
       }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,  
+  
 }
