@@ -1,5 +1,24 @@
-import { SigninButton } from "@/components/buttons";
-export default function Login() {
+"use client"
+import { SigninButton } from "@/lib/components/buttons";
+import {  useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+const Login = async () => {
+  const { data: session, status } = useSession();
+  const router = useRouter()
+  if(session && session.user!==null){
+    router.push("/home")
+  }
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/home'); // Redirect to home page or any other page
+    }
+  }, [session, status, router]);
+  if(status === "loading"){
+    return(<><h1 className="text-center flex justify-center items-center text-amber-300">loading...</h1></>)
+  }
   return (
     <>
       <section>
@@ -19,4 +38,6 @@ export default function Login() {
       </section>
     </>
   );
-}
+};
+
+export default Login;

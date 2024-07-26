@@ -1,11 +1,11 @@
 "use client"
 import React from "react";
-import Navbar from "../../components/navbar";
-import Slidebar from "../../components/slidebar";
+import Navbar from "@/lib/components/navbar";
+import Slidebar from "@/lib/components/slidebar";
 import Image from "next/image";
-import Landingpage from "@/components/landingpage";
+import Landingpage from "@/lib/components/landingpage";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth/authOptions";
 const Home = async () => {
   const session = await getServerSession(authOptions);
     const handleMouseEnter = (event:any) => {
@@ -16,7 +16,7 @@ const Home = async () => {
         event.target.pause();
       };
 
-    if (session) {
+    if (session && session !== null) {
     return (
       <>
         <div className=" border-b-2 border-white z-10 border-solid navbar-sticky">
