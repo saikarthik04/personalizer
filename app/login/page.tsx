@@ -1,10 +1,10 @@
 "use client"
-import { SigninButton } from "@/lib/components/buttons";
+import { SigninButton } from "@/app/lib/components/buttons";
 import {  useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const Login = async () => {
+const Login = () => {
   const { data: session, status } = useSession();
   const router = useRouter()
   if(session && session.user!==null){

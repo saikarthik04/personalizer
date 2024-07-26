@@ -1,7 +1,7 @@
-import Landingpage from "@/lib/components/landingpage";
+import Landingpage from "@/app/lib/components/landingpage";
 import Home from "./home/page";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth/authOptions";
+import { authOptions } from "@/app/lib/auth/authOptions";
 const Main = async () => {
   const session = await getServerSession(authOptions);
   if (!session && session == null){

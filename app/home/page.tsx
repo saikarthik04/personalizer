@@ -1,11 +1,11 @@
 "use client"
 import React from "react";
-import Navbar from "@/lib/components/navbar";
-import Slidebar from "@/lib/components/slidebar";
+import Navbar from "@/app/lib/components/navbar";
+import Slidebar from "@/app/lib/components/slidebar";
 import Image from "next/image";
-import Landingpage from "@/lib/components/landingpage";
+import Landingpage from "@/app/lib/components/landingpage";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth/authOptions";
+import { authOptions } from "@/app/lib/auth/authOptions";
 const Home = async () => {
   const session = await getServerSession(authOptions);
     const handleMouseEnter = (event:any) => {
