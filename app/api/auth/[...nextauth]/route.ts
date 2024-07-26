@@ -1,11 +1,11 @@
 import { authOptions } from "@/app/lib/auth/authOptions";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next";
 import NextAuth from "next-auth";
 
-export async function GET( req: NextApiRequest,res: NextApiResponse ) {
+export async function GET( req: NextRequest,res: NextResponse ) {
   return NextAuth(req,res,authOptions)
   }
   
-export async function POST( req: NextApiRequest,res: NextApiResponse ) {
+export async function POST( req: NextRequest,res: NextResponse ) {
   return NextAuth(req,res,authOptions)
   }
