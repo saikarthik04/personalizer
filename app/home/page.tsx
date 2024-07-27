@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth/authOptions";
 const Home = async () => {
   const session = await getServerSession(authOptions);
+  console.log(session)
     const handleMouseEnter = (event:any) => {
         event.target.play();
       };

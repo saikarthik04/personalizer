@@ -5,12 +5,10 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const Login = () => {
-  const { data: session, status } = useSession();
+  const { update,data:session, status } = useSession();
   const router = useRouter()
-  if(session && session.user!==null){
-    router.push("/home")
-  }
-
+  console.log(update,session?.user?.name, status,"login")
+ 
   useEffect(() => {
     if (status === 'authenticated') {
       router.push('/home'); // Redirect to home page or any other page
@@ -38,6 +36,6 @@ const Login = () => {
       </section>
     </>
   );
-};
+}
 
 export default Login;
