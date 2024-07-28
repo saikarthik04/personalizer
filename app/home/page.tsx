@@ -29,10 +29,10 @@ const Home = () => {
     if (session.status == "authenticated" && session.data.user !== null) {
     return (
       <>
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-center">
         <Slidebar/>
         <section className="h-screen  homeScreen mt-36 ">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mx-4">
             <div className="row-span-12">
               <div className="flex justify-center">
                 <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-800">

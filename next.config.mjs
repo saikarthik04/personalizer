@@ -9,6 +9,7 @@ const nextConfig = {
               pathname: '/photo/**',
             },
           ],
+          domains: ['lh3.googleusercontent.com'],
           unoptimized:false,
       },
 };

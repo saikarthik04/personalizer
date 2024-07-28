@@ -20,8 +20,8 @@ const Login = () => {
   return (
     <>
       <section>
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <p className="flex items-center mb-6 text-2xl font-semibold text-slate-200">
+        <div className=" h-screen flex flex-col items-center justify-center md:px-6 md:py-8 px-12 md:mx-auto md:h-screen lg:py-0">
+          <p className="md:flex items-center mb-6 text-2xl font-semibold text-slate-200 hidden">
             Personalizer
           </p>
           <div className="w-full  bg-white bg-opacity-10 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">

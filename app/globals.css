@@ -32,16 +32,21 @@ body {
   line-height: 1.5;
 } */
 }
+@media (min-width: 768px) {
 .sidebar-sticky{
   position: fixed;
   left: 0px;
   top: 82px;
   background: #27272a;
   z-index: 999;
+
 }
+}
+@media (min-width: 768px) {
 .homeScreen{
   position: absolute;
   left: 11rem;
+}
 }
 .navbar-sticky{
   position: fixed;
@@ -50,6 +55,8 @@ body {
   backdrop-filter: blur(3px);
   background: #090912e8;
 }
+@media (min-width: 768px) {
 .h-sildebar{
   height: 89%;
+}
 }

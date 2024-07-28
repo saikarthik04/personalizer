@@ -3,7 +3,7 @@ import React from "react";
 const Slidebar = () => {
   return (
     <>
-      <div className="flex flex-col items-center w-40 h-sildebar overflow-hidden text-gray-400 rounded sticky sidebar-sticky">
+      <div className="md:flex md:flex-col md:items-center md:w-40 h-sildebar md:overflow-hidden md:text-gray-400 md:rounded sticky sidebar-sticky hidden ">
         {/* <a className="flex items-center w-full px-3 mt-3" href="#">
           <svg
             className="w-8 h-8 fill-current"

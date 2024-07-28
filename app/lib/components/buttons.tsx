@@ -13,7 +13,7 @@ export const SigninButton = () => {
                 <Image
                   src="/icons/google-logo.svg"
                   alt="Google Icon" width={20} height={20}
-                  className="absolute left-20"
+                  className="absolute md:left-20 sm:left-16"
                 />{"Sign In with Google"}
               </button>
     </>
