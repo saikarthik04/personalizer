@@ -21,6 +21,7 @@ export const SigninButton = () => {
 }
 
 export const SignOutButton = () => {
+  console.log("signout")
   return (
     <>
       <button onClick={() => signOut()}>Sign out</button>
