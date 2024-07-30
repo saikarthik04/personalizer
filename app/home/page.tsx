@@ -1,11 +1,12 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/app/lib/components/navbar";
 import Slidebar from "@/app/lib/components/slidebar";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 const Home = () => {
+  const [isMiniSidebarVisible, setSidebarVisible] = useState(false);
   const session = useSession();
   const router = useRouter();
   console.log(session,"home")
@@ -22,15 +23,20 @@ const Home = () => {
         event.target.play();
       };
     
-      const handleMouseLeave = (event:any) => {
+    const handleMouseLeave = (event:any) => {
         event.target.pause();
       };
-
+      const toggleSidebar = () => {
+        setSidebarVisible(!isMiniSidebarVisible);
+      };
+    
     if (session.status == "authenticated" && session.data.user !== null) {
     return (
       <>
+      <Navbar toggleSidebar={toggleSidebar}/>
         <div className="flex flex-row justify-center">
-        <Slidebar/>
+        <Slidebar isMiniSidebarVisible={isMiniSidebarVisible}/>
+        <div className={`${isMiniSidebarVisible}`}>
         <section className="h-screen  homeScreen mt-36 ">
           <div className="grid md:grid-cols-3 gap-8 mx-4">
             <div className="row-span-12">
@@ -149,6 +155,7 @@ const Home = () => {
             </div>
             </div>
         </section>
+        </div>
         </div>
       </>
     );

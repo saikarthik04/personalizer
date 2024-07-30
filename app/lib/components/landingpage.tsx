@@ -1,9 +1,12 @@
 import React from 'react'
 import { Playfair_Display} from "next/font/google";
+import Navbar from './navbar';
 const playfair_Display = Playfair_Display({weight:['400','500','600'], preload:false, subsets:['latin']});
 
 const Landingpage = () => {
   return (
+    <>
+     <Navbar/>
     <main className="lg:px-48 ">
       <section className="h-screen md:my-30 lg:my-34 my-20 text-balance leading-loose md:text-5xl text-xl px-10 grid justify-center items-center line">
         <p>Customize your youTube recommendations with
@@ -12,6 +15,7 @@ const Landingpage = () => {
       </p>
       </section>
     </main>
+    </>
   )
 }
 

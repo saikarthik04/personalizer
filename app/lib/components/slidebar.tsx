@@ -1,9 +1,14 @@
 import React from "react";
+import styles from './sidebar.module.css';
+interface SidebarProps {
+  isMiniSidebarVisible: boolean;
+}
 
-const Slidebar = () => {
+const Slidebar= ({ isMiniSidebarVisible }:SidebarProps) => {
   return (
     <>
-      <div className="md:flex md:flex-col md:items-center md:w-40 h-sildebar md:overflow-hidden md:text-gray-400 md:rounded sticky sidebar-sticky hidden ">
+    <div className={`${styles.sidebar} ${isMiniSidebarVisible ? styles.visible: styles.silder} `}>
+      <div className="lg:flex md:flex-col md:items-center md:w-40 h-sildebar  md:text-gray-400 md:rounded sticky sidebar-sticky m_view_slidebar">
         {/* <a className="flex items-center w-full px-3 mt-3" href="#">
           <svg
             className="w-8 h-8 fill-current"
@@ -182,6 +187,7 @@ const Slidebar = () => {
           </svg>
           <span className="ml-2 text-sm font-medium">Account</span>
         </a>
+      </div>
       </div>
     </>
   );

@@ -1,0 +1,11 @@
+.silder{
+    display: none;
+  }
+.visible{
+    display: block;
+}
+  @media (min-width: 768px) {
+    .sidebar {
+      display: block;
+    }
+  }

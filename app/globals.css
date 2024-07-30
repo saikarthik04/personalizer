@@ -60,3 +60,12 @@ body {
   height: 89%;
 }
 }
+.m_view_slidebar{
+  position: fixed;
+    top: 5.1rem;
+    left: 0;
+    right: 0;
+    background: #121317;
+    bottom: 0;
+    z-index: 10;
+}
