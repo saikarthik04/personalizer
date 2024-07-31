@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --background-rgb: 15, 15, 15;
   --font-poppins: 'Poppins', sans-serif;
   --text-color:255, 255, 255
 }
@@ -38,8 +38,6 @@ body {
   left: 0px;
   top: 82px;
   background: #27272a;
-  z-index: 999;
-
 }
 }
 @media (min-width: 768px) {
@@ -67,5 +65,13 @@ body {
     right: 0;
     background: #121317;
     bottom: 0;
-    z-index: 10;
+}
+.settings_popup{
+background: #282828;
+}
+.border_bottom{
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+.nav_pos{
+  justify-content: space-evenly;
 }

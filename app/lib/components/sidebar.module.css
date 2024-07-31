@@ -3,7 +3,6 @@
   }
 .visible{
     display: block;
-    background: #121317;
 }
 @media (min-width: 768px) {
     .sidebar {

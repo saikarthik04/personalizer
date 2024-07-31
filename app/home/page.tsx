@@ -5,6 +5,7 @@ import Slidebar from "@/app/lib/components/slidebar";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import styles from '@/app/lib/components/sidebar.module.css';
 const Home = () => {
   const [isMiniSidebarVisible, setSidebarVisible] = useState(false);
   const session = useSession();
@@ -36,12 +37,12 @@ const Home = () => {
       <Navbar toggleSidebar={toggleSidebar}/>
         <div className="flex flex-row justify-center">
         <Slidebar isMiniSidebarVisible={isMiniSidebarVisible}/>
-        <div className={`${isMiniSidebarVisible}`}>
+        <div className={`${styles.sidebar} ${isMiniSidebarVisible  ? styles.silder: styles.visible} `}>
         <section className="h-screen  homeScreen mt-36 ">
           <div className="grid md:grid-cols-3 gap-8 mx-4">
             <div className="row-span-12">
               <div className="flex justify-center">
-                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-800">
+                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-900">
                   <a href="#!">
                     <video
                       width="320"
@@ -79,7 +80,7 @@ const Home = () => {
             </div>
             <div className="row-span-12">
               <div className="flex justify-center">
-                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-800">
+                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-900">
                   <a href="#!">
                     <video
                       width="320"
@@ -117,7 +118,7 @@ const Home = () => {
             </div>
             <div className="row-span-12">
               <div className="flex justify-center">
-                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-800">
+                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-900">
                   <a href="#!">
                     <video
                       width="320"
