@@ -3,9 +3,11 @@
   }
 .visible{
     display: block;
+    background: #121317;
 }
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .sidebar {
       display: block;
+      background: #121317;
     }
-  }
+}

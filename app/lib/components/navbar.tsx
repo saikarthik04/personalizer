@@ -36,7 +36,7 @@ const Navbar = ({toggleSidebar}:NavbarProps) => {
         <a className="md:text-4xl font-thin text-3xl" href="/">
           <h1 className={playfair_Display.className}>Personalizer</h1>
         </a>
-         <div className="md:hidden absolute right-5 w-8 h-8">
+         <li className="md:hidden absolute right-6 items-center list-none ">
          {sessionData.data?.user ?  
          <>
         {/* <Image
@@ -46,9 +46,9 @@ const Navbar = ({toggleSidebar}:NavbarProps) => {
           onClick={toggleSidebar}
           className="h-10 w-16 rounded-full flex md:hidden"
         ></Image> */}
-        <RxHamburgerMenu className="w-7 h-7 justify-center items-center md:hidden" onClick={toggleSidebar}></RxHamburgerMenu></>
+        <RxHamburgerMenu className="w-6 h-6 mt-2 justify-center items-center md:hidden" onClick={toggleSidebar}></RxHamburgerMenu></>
         : (<Link href="/login"><FaRegCircleUser className="h-11 w-9"/></Link>)}
-        </div> 
+        </li> 
         <div className="md:flex md:items-center  md:list hidden">
           <Link
             href="https://github.com/saikarthik04/personalizer"
