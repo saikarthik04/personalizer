@@ -3,6 +3,7 @@ import { SigninButton } from "@/app/lib/components/buttons";
 import {  useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Loader from "../lib/components/loader";
 
 const Login = () => {
   const { update,data:session, status } = useSession();
@@ -15,7 +16,7 @@ const Login = () => {
     }
   }, [session, status, router]);
   if(status === "loading"){
-    return(<><h1 className="text-center flex justify-center items-center text-amber-300">loading...</h1></>)
+    return <Loader/>;
   }
   return (
     <>

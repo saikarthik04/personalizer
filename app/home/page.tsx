@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import styles from '@/app/lib/components/sidebar.module.css';
+import Loader from "../lib/components/loader";
 const Home = () => {
   const [isMiniSidebarVisible, setSidebarVisible] = useState(false);
   const session = useSession();
@@ -18,7 +19,7 @@ const Home = () => {
   }, [session.status, router]);
 
   if (session.status === 'loading') {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
     const handleMouseEnter = (event:any) => {
         event.target.play();
