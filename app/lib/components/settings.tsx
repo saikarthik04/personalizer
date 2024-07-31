@@ -1,7 +1,7 @@
 import { Session } from "next-auth";
 import React from "react";
 import Image from "next/image";
-import { PiSignOutBold } from "react-icons/pi";
+import { SignOutButton } from "./buttons";
 type UpdateSession = (data?: any) => Promise<Session | null>;
 interface UserSession {
   data: any;
@@ -23,10 +23,9 @@ const Settings = ({ data, status, update }: UserSession) => {
         <p className="text-base">{data?.user.name}</p>
       </div>
       <div className="flex flex-col gap-5  justify-center py-5  hover:bg-zinc-600 rounded-md">
-        <a className="px-8 flex flex-row gap-5">
-          <PiSignOutBold className="h-5 w-5 "/>
-          <p className="text-sm">Sign out</p>
-        </a>
+        <div className="px-8 flex flex-row gap-5" >
+        <SignOutButton ></SignOutButton>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { signIn, signOut } from 'next-auth/react'
+import { PiSignOutBold } from "react-icons/pi";
 export const SigninButton = () => {
   return (
     <>
@@ -24,7 +25,8 @@ export const SignOutButton = () => {
   console.log("signout")
   return (
     <>
-      <button onClick={() => signOut()}>Sign out</button>
+    <PiSignOutBold className='h-5 w-5'/>
+    <button className='text-sm' onClick={() => signOut()}>Sign out</button>
     </>
   )
 }
