@@ -46,7 +46,7 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
           </li>
           <li className="list-none flex flex-row items-center">
           <a className="md:text-4xl font-thin text-3xl  contents" href="/">
-          <Image src="/icons/brand-logo.svg" alt="brand-logo" height={80} width={80}/>
+          <Image src="/icons/personalizer-brand.svg" alt="brand-logo" height={60} width={60} className="mr-2"/>
             <h1 className={dm_Serif_Display.className} >
             rsonalizer</h1>
           </a>

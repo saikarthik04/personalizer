@@ -11,7 +11,7 @@ const Loader = () => {
     //   bg-gradient-to-br flex justify-center align-middle items-center text-center h-screen md:font-bold loaderBg text-emerald-950'> <span className={dm_Serif_Display.className}>personalizer</span></div>
 
       <div className='flex justify-center align-middle items-center text-center h-screen bg-black'>
-        <Image src="/icons/brand-logo.svg" alt='brand-loader' width={120} height={120}></Image>
+        <Image src="/icons/personalizer-brand.svg" alt='brand-loader' width={120} height={120}></Image>
       </div>
   )
 }
