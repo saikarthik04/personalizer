@@ -31,7 +31,7 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
   return (
     <>
       <nav className=" border-b-2 border-white z-10 border-solid navbar-sticky">
-        <div className="h-20 flex md:ml-44 md:mr-40 mx-10 items-center md:justify-between text-center nav_pos">
+        <div className="h-20 flex md:ml-44 md:mr-36 mx-10 items-center md:justify-between text-center nav_pos">
           <li className="md:hidden absolute left-6 items-center list-none ">
             {sessionData.data?.user ? (
               <>
@@ -45,11 +45,16 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
             )}
           </li>
           <li className="list-none flex flex-row items-center">
-          <a className="md:text-4xl font-thin text-3xl  contents" href="/">
-          <Image src="/icons/personalizer-brand.svg" alt="brand-logo" height={60} width={60} className="mr-2"/>
-            <h1 className={dm_Serif_Display.className} >
-            rsonalizer</h1>
-          </a>
+            <a className="md:text-4xl font-thin text-3xl  contents" href="/">
+              <Image
+                src="/icons/personalizer-brand.svg"
+                alt="brand-logo"
+                height={40}
+                width={40}
+                className="mr-2"
+              />
+              <h1 className={dm_Serif_Display.className}>rsonalizer</h1>
+            </a>
           </li>
           <div className="md:flex md:items-center md:list mt-2 float-right items-center">
             <Link
