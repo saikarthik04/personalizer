@@ -71,8 +71,8 @@ const Home = () => {
               isMiniSidebarVisible ? styles.silder : styles.visible
             } `}
           >
-            <section className="h-screen mt-36 ">
-              <div className="grid md:grid-cols-3 gap-8 mx-4">
+            <section className="h-screen mt-36 md:ml-20  ">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
                 {videos && !loading ? <HomeVideosPage data={videos} /> : ""}
               </div>
             </section>
