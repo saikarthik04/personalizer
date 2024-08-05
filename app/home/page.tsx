@@ -71,7 +71,7 @@ const Home = () => {
               isMiniSidebarVisible ? styles.silder : styles.visible
             } `}
           >
-            <section className="h-screen mt-36 md:ml-20  ">
+            <section className="mt-36 md:ml-20 mb-36">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
                 {videos && !loading ? <HomeVideosPage data={videos} /> : ""}
               </div>
@@ -107,7 +107,8 @@ const HomeVideosPage = ({ data }: Props) => {
                     src={`https://www.youtube.com/embed/${video.id}`}
                     title={video.snippet.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    allowFullScreen 
+                    allowTransparency
                   >
                     {/* <img    
                     src={video.snippet.thumbnails.high.url}

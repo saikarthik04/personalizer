@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect } from "react";
 import styles from './sidebar.module.css';
+import { MdPlaylistPlay } from "react-icons/md";
 interface SidebarProps {
   isMiniSidebarVisible: boolean;
 }
@@ -33,24 +34,11 @@ const Slidebar= ({ isMiniSidebarVisible }:SidebarProps) => {
               <span className="ml-2 text-sm font-medium">Dasboard</span>
             </a>
             <a
-              className="flex items-center w-full h-12 px-3 mt-2 text-gray-200 bg-gray-700 rounded"
+              className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
               href="#"
             >
-              <svg
-                className="w-6 h-6 stroke-current"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="ml-2 text-sm font-medium">Insights</span>
+              <MdPlaylistPlay className="h-6 w-6"/>
+              <span className="ml-2 text-sm font-medium">Playlists</span>
             </a>
             <a
               className="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700 hover:text-gray-300"
