@@ -115,7 +115,7 @@ const HomeVideosPage = ({ data }: Props) => {
                     className="w-full rounded-t-lg opacity-100 hover:opacity-0" 
                   /> */}
                   </iframe>
-                  <div className="m-4 flex justify-center">
+                  <div className="m-4 flex justify-center text-start mb-2 flex-col">
                     {/* <a href="" className="mr-4">
                       <Image
                         src="https://cdn.pixabay.com/photo/2021/07/13/09/12/lion-logo-6462988_1280.png"
@@ -123,8 +123,7 @@ const HomeVideosPage = ({ data }: Props) => {
                         className="bg-white h-10 w-16 rounded-full"
                       ></Image>
                       </a> */}
-                    <span className="text-start mb-2 flex flex-col">
-                      <div className="font-medium text-base text-ellipsis">
+                      <div className="font-medium text-base line-clamp-2 text-ellipsis">
                         {video.snippet.title}
                       </div>
                       <p className="text-sm font-normal mt-3 text-gray-300 flex justify-between">
@@ -134,7 +133,6 @@ const HomeVideosPage = ({ data }: Props) => {
                       <p className="text-xs font-normal text-gray-300 flex justify-between mt-2">
                         269k views<span className="px-4">2 months ago</span>
                       </p>
-                    </span>
                   </div>
                 </div>
               </div>
