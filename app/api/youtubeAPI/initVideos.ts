@@ -1,4 +1,3 @@
-"use server";
 import { constants } from "@/app/constants";
 import { VideoData } from "@/app/types";
 export async function GetMostPopularVideosData(): Promise<VideoData | null> {
