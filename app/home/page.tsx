@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { FunctionComponent, Suspense, useEffect, useState } from "react";
 import Navbar from "@/app/lib/components/navbar";
 import Slidebar from "@/app/lib/components/slidebar";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import styles from "@/app/lib/components/sidebar.module.css";
 import Loader from "../lib/components/loader";
 import { GetMostPopularVideosData } from "../api/youtubeAPI/initVideos";
+import { searchData } from "../types";
+import SearchBar, { SearchBox } from "../lib/components/searchBar";
 
 type VideoData = {
   kind: string;
@@ -21,12 +23,12 @@ type VideoData = {
 };
 
 interface Props {
-  data: VideoData;
+  data?: VideoData;
 }
-
 const Home = () => {
   const [isMiniSidebarVisible, setSidebarVisible] = useState(false);
   const [videos, SetVideosData] = useState<VideoData | null>();
+  const [searchValue, setSearchValue] = useState(""); 
   const [loading, setLoading] = useState(true);
   const session = useSession();
   const router = useRouter();
@@ -59,11 +61,17 @@ const Home = () => {
   const toggleSidebar = () => {
     setSidebarVisible(!isMiniSidebarVisible);
   };
+  const handleSearch = (value: string):string => {
+     setSearchValue(value);
+     return value
+  };
 
   if (session.status == "authenticated" && session.data.user !== null) {
     return (
       <>
-        <Navbar toggleSidebar={toggleSidebar} />
+        <Navbar toggleSidebar={toggleSidebar}>
+          <SearchBox onSearch={handleSearch}/>
+        </Navbar>
         <div className="flex flex-row justify-center">
           <Slidebar isMiniSidebarVisible={isMiniSidebarVisible} />
           <div
@@ -72,8 +80,8 @@ const Home = () => {
             } `}
           >
             <section className="mt-36 md:ml-20 mb-36">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
-                {videos && !loading ? <HomeVideosPage data={videos} /> : ""}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+             { videos && !loading  && searchValue.trim()=="" ? <HomeVideosPage data={videos}/> : <SearchBar searchValue={searchValue} />}
               </div>
             </section>
           </div>
@@ -83,17 +91,20 @@ const Home = () => {
   }
 };
 
-export default Home;
+const HomeVideosPage = ({ data}: Props) => {
+  // const handleMouseEnter = (event: any) => {
+  //   event.target.play();
+  // };
 
-const HomeVideosPage = ({ data }: Props) => {
-  const handleMouseEnter = (event: any) => {
-    event.target.play();
-  };
-
-  const handleMouseLeave = (event: any) => {
-    event.target.pause();
-  };
+  // const handleMouseLeave = (event: any) => {
+  //   event.target.pause();
+  // };
+  // const [searchResults, setSearchResults] = useState<searchData | null>(null);
+  //  const handleResults = (results: searchData | null) => {
+  //   setSearchResults(results);
+  // };
   if (data && data?.items) {
+    console.log(data)
     return (
       <>
         {data.items.map((video) => (
@@ -104,11 +115,9 @@ const HomeVideosPage = ({ data }: Props) => {
                   <iframe
                     width="384"
                     height="240"
-                    src={`https://www.youtube.com/embed/${video.id}`}
+                    src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1`}
                     title={video.snippet.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen 
-                    allowTransparency
                   >
                     {/* <img    
                     src={video.snippet.thumbnails.high.url}
@@ -119,7 +128,7 @@ const HomeVideosPage = ({ data }: Props) => {
                   <div className="m-4 flex justify-center text-start mb-2 flex-col">
                     {/* <a href="" className="mr-4">
                       <Image
-                        src="https://cdn.pixabay.com/photo/2021/07/13/09/12/lion-logo-6462988_1280.png"
+                        src={video.snippet.thumbnails[0]}
                         alt={video.snippet.channelId} width={64} height={40}
                         className="bg-white h-10 w-16 rounded-full"
                       ></Image>
@@ -144,3 +153,6 @@ const HomeVideosPage = ({ data }: Props) => {
     );
   }
 };
+
+
+export default Home;

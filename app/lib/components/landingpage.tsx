@@ -6,7 +6,7 @@ const playfair_Display = Playfair_Display({weight:['400','500','600'], preload:f
 const Landingpage = () => {
   return (
     <>
-     <Navbar/>
+     <Navbar children={undefined}/>
     <main className="lg:px-48 ">
       <section className="h-screen md:my-30 lg:my-34 my-20 text-balance leading-loose md:text-5xl text-xl px-10 grid justify-center items-center line">
         <p>Customize your youTube recommendations with

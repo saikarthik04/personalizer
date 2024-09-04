@@ -18,14 +18,22 @@ const dm_Serif_Display = DM_Serif_Display({
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Settings from "./settings";
+import {SearchBox} from './searchBar'
 
 interface NavbarProps {
   toggleSidebar?: () => void;
+  children:any
 }
 
-const Navbar = ({ toggleSidebar }: NavbarProps) => {
+const Navbar = ({ toggleSidebar, children }: NavbarProps) => {
   const sessionData = useSession();
   const [showSetting, setSetting] = useState(false);
+  // const handleInputChange = (event:any) => {
+  //   setInputValue(event.target.value);
+  //   if (inputValue.trim()==""){
+  //     onSearch(inputValue)
+  //   }
+  // };
 
   console.log(sessionData, "nav");
   return (
@@ -56,6 +64,7 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
               <h1 className={dm_Serif_Display.className}>rsonalizer</h1>
             </a>
           </li>
+          {children}
           <div className="md:flex md:items-center md:list mt-2 float-right items-center">
             <Link
               href="https://github.com/saikarthik04/personalizer"
@@ -66,12 +75,12 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
             {sessionData.status == "authenticated" &&
             sessionData.data.user != null ? (
               <>
-                <Image
+                <Image 
                   src={sessionData.data?.user?.image}
                   alt={sessionData.data?.user.name}
                   width={30}
                   height={30}
-                  className=" rounded-full flex"
+                  className=" rounded-full md:flex hidden"
                   onClick={() => setSetting(!showSetting)}
                 ></Image>
               </>

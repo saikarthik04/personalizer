@@ -1,12 +1,20 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import styles from './sidebar.module.css';
 import { MdPlaylistPlay } from "react-icons/md";
+import { useSession } from "next-auth/react";
+import Image from 'next/image'
+import Link from "next/link";
+import { FaRegCircleUser } from "react-icons/fa6";
+import Settings from "./settings";
+import { SignOutButton } from "./buttons";
 interface SidebarProps {
   isMiniSidebarVisible: boolean;
 }
 
 const Slidebar= ({ isMiniSidebarVisible }:SidebarProps) => {
+  const [showSetting, setSetting] = useState(false);
+  const sessionData = useSession();
   return (
     <>
      <div className={`${styles.sidebar} ${isMiniSidebarVisible  ? styles.visible: styles.silder} `}>
@@ -129,22 +137,40 @@ const Slidebar= ({ isMiniSidebarVisible }:SidebarProps) => {
           className="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700 hover:text-gray-300"
           href="#"
         >
-          <svg
-            className="w-6 h-6 stroke-current"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <span className="ml-2 text-sm font-medium">Account</span>
+         {sessionData.status == "authenticated" &&
+            sessionData.data.user != null ? (
+              <>
+                <Image 
+                  src={sessionData.data?.user?.image}
+                  alt={sessionData.data?.user.name}
+                  width={30}
+                  height={30}
+                  className=" rounded-full block md:hidden"
+                  onClick={() => setSetting(!showSetting)}
+                ></Image>
+              </>
+            ) : (
+              <Link href="/login" className="md:hidden block">
+                <FaRegCircleUser className="h-11 w-9" />
+              </Link>
+            )} 
         </a>
+        {showSetting ? (
+          <>
+        <Settings
+          data={sessionData.data}
+          status={sessionData.status}
+          update={sessionData.update}
+        />
+        <a
+          className="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700 hover:text-gray-300"
+          href="#"
+        > <SignOutButton ></SignOutButton>
+</a>
+         </>
+      ) : (
+        ""
+      )}
         </section>
         </div>
         </>

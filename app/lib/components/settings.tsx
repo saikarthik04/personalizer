@@ -10,7 +10,8 @@ interface UserSession {
 }
 const Settings = ({ data, status, update }: UserSession) => {
   return (
-    <div className=" w-72 settings_popup fixed rounded-md z-10 right-8 top-24">
+    <>
+    <div className="hidden md:flex w-72 settings_popup fixed rounded-md z-10 right-8 top-24">
       <div className="h-20 border_bottom flex flex-row justify-center items-center gap-4">
         <div className="w-12 h-12 relative ">
           <Image
@@ -28,6 +29,7 @@ const Settings = ({ data, status, update }: UserSession) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
