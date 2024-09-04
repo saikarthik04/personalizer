@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { Playfair_Display } from "next/font/google";
 import { DM_Serif_Display } from "next/font/google";
@@ -18,11 +18,10 @@ const dm_Serif_Display = DM_Serif_Display({
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Settings from "./settings";
-import {SearchBox} from './searchBar'
 
 interface NavbarProps {
   toggleSidebar?: () => void;
-  children:any
+  children?: ReactNode;
 }
 
 const Navbar = ({ toggleSidebar, children }: NavbarProps) => {
