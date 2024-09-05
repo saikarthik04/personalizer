@@ -2,7 +2,6 @@ import { GetSearchResults } from "@/app/api/youtubeAPI/searchData";
 import { searchData } from "@/app/types";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
-
 interface SearchProps {
   searchValue: string;
 }
@@ -85,35 +84,54 @@ const SearchComponent = ({ searchResults }: SearchResultsProps) => {
   );
 };
 
-
-export const  SearchBox = ({onSearch}:SearchBoxProps) => {
+export const SearchBox = ({ onSearch }: SearchBoxProps) => {
   const [inputValue, SetinputValue] = useState("");
+  const [isSearchOpen, SetIsSearchopen] = useState(false);
   const handleInputChange = (event: any) => {
     SetinputValue(event.target.value);
   };
   const searchFunc = () => {
-    onSearch(inputValue)
+    onSearch(inputValue);
+    SetIsSearchopen(!isSearchOpen);
+  };
+  const handleSearchIcon = () => {
+    SetIsSearchopen(!isSearchOpen);
   };
   return (
     <>
       <section className="mt-2 lg:hidden">
-        <button>
-          <CiSearch />
-        </button>
+        <CiSearch onClick={handleSearchIcon} />
       </section>
-      <section className="w-96 h-10 lg:flex flex-row items-center hidden  rounded-3xl outline outline-1">
-        <input
-          type="search"
-          className="w-80 h-10 bg-transparent border border-gray-400 text-white rounded-s-full outline-0 pl-4 appearance-none"
-          value={inputValue}
-          onChange={handleInputChange}
-        ></input>
-        <button className="p-4 " onClick={searchFunc}>
-          <CiSearch />
-        </button>
-      </section>
+      {isSearchOpen ? (
+        <>
+          <section className="md:hidden fixed bg-black ml-5">
+            <input
+              type="search"
+              className="w-72 h-10 bg-transparent border border-gray-400 text-white rounded-s-full outline-0 pl-4 appearance-none"
+              value={inputValue}
+              onChange={handleInputChange}
+            ></input>
+            <button className="p-4 " onClick={searchFunc}>
+              <CiSearch />
+            </button>
+          </section>
+          <section className="w-96 h-10 lg:flex flex-row items-center rounded-3xl outline outline-1 hidden">
+            <input
+              type="search"
+              className="w-80 h-10 bg-transparent border border-gray-400 text-white rounded-s-full outline-0 pl-4 appearance-none"
+              value={inputValue}
+              onChange={handleInputChange}
+            ></input>
+            <button className="p-4 " onClick={searchFunc}>
+              <CiSearch />
+            </button>
+          </section>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };
 
-export default SearchBar
+export default SearchBar;
