@@ -104,7 +104,7 @@ export const SearchBox = ({ onSearch }: SearchBoxProps) => {
       </section>
       {isSearchOpen ? (
         <>
-          <section className="md:hidden fixed bg-black ml-5">
+          <section className="md:hidden fixed bg-temp-clr ml-5">
             <input
               type="search"
               className="w-72 h-10 bg-transparent border border-gray-400 text-white rounded-s-full outline-0 pl-4 appearance-none"
