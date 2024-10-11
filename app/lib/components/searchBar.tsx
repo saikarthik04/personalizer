@@ -1,5 +1,6 @@
 import { GetSearchResults } from "@/app/api/youtubeAPI/searchData";
 import { searchData } from "@/app/types";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 interface SearchProps {
@@ -99,9 +100,13 @@ export const SearchBox = ({ onSearch }: SearchBoxProps) => {
   };
   return (
     <>
-      <section className="mt-2 lg:hidden">
-        <CiSearch onClick={handleSearchIcon} />
-      </section>
+    { isSearchOpen ? "":
+    <>
+      <motion.div className="mt-2"  animate={{ x: [100, 0] }}>
+      <CiSearch onClick={handleSearchIcon} />
+      </motion.div>
+      </>
+      }
       {isSearchOpen ? (
         <>
           <section className="md:hidden fixed bg-temp-clr ml-5">
