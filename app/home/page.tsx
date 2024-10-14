@@ -2,15 +2,12 @@
 import React, { FunctionComponent, Suspense, useEffect, useState } from "react";
 import Navbar from "@/app/lib/components/navbar";
 import Slidebar from "@/app/lib/components/slidebar";
-import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import styles from "@/app/lib/components/sidebar.module.css";
 import Loader from "../lib/components/loader";
 import { GetMostPopularVideosData } from "../api/youtubeAPI/initVideos";
-import { searchData } from "../types";
 import SearchBar, { SearchBox } from "../lib/components/searchBar";
-
 type VideoData = {
   kind: string;
   etag: string;
@@ -65,8 +62,8 @@ const Home = () => {
      setSearchValue(value);
      return value
   };
-
   if (session.status == "authenticated" && session.data.user !== null) {
+    console.log(session.data.expires)
     return (
       <>
         <Navbar toggleSidebar={toggleSidebar}>
@@ -111,10 +108,9 @@ const HomeVideosPage = ({ data}: Props) => {
           <div key={video?.id}>
             <div className="row-span-12">
               <div className="flex justify-center">
-                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-900">
+                <div className="rounded-lg shadow-lg bg- max-w-sm bg-transparent bg-zinc-900 flex flex-col">
                   <iframe
-                    width="384"
-                    height="240"
+
                     src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1`}
                     title={video.snippet.title}
                     allowFullScreen 

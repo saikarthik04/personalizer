@@ -1,4 +1,3 @@
-import { DM_Serif_Display } from 'next/font/google';
 import Image from 'next/image';
 import React from 'react'
 // const dm_Serif_Display = DM_Serif_Display({
