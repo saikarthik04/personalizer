@@ -11,6 +11,7 @@ declare module "next-auth" {
     user: {
       id: string;
     } & DefaultSession["user"];
+    is_newsession: boolean;
   }
 
   interface User {

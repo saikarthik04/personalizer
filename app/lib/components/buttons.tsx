@@ -8,7 +8,7 @@ export const SigninButton = () => {
      <button
                 type="button"
                 className="w-full bg-white focus:ring-2 hover:bg-black text-black hover:text-white focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex flex-row justify-center gap-5"
-                onClick={() => signIn("google", {callbackUrl:'/home',redirect:true})}
+                onClick={() => signIn("google", {callbackUrl:'/',redirect:true})}
               >
                 {/* <Image
                   src="/icons/google-logo.svg"
