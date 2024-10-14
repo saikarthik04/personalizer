@@ -1,10 +1,11 @@
+"use client"
 import { categoryItems } from '@/app/constants';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react'
 
 const Modeselector = () => {
-  const { data: session } = useSession();
+
   // const [showCategoryModal, setCategoryModal] = useState(false);
 
   // useEffect(() => {
