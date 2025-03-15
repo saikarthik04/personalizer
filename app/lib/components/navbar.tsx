@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, useEffect, useRef } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { Playfair_Display } from "next/font/google";
 import { DM_Serif_Display } from "next/font/google";
@@ -27,12 +27,25 @@ interface NavbarProps {
 const Navbar = ({ toggleSidebar, children }: NavbarProps) => {
   const sessionData = useSession();
   const [showSetting, setSetting] = useState(false);
-  // const handleInputChange = (event:any) => {
-  //   setInputValue(event.target.value);
-  //   if (inputValue.trim()==""){
-  //     onSearch(inputValue)
-  //   }
-  // };
+  const settingsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+        setSetting(false);
+      }
+    };
+
+    if (showSetting) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showSetting]);
 
   console.log(sessionData, "nav");
   return (
@@ -92,11 +105,13 @@ const Navbar = ({ toggleSidebar, children }: NavbarProps) => {
         </div>
       </nav>
       {showSetting ? (
-        <Settings
-          data={sessionData.data}
-          status={sessionData.status}
-          update={sessionData.update}
-        />
+        <div ref={settingsRef}>
+          <Settings
+            data={sessionData.data}
+            status={sessionData.status}
+            update={sessionData.update}
+          />
+        </div>
       ) : (
         ""
       )}

@@ -3,6 +3,8 @@ import { searchData } from "@/app/types";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import { formatDistanceToNow } from "date-fns";
+
 interface SearchProps {
   searchValue: string;
 }
@@ -69,12 +71,12 @@ const SearchComponent = ({ searchResults }: SearchResultsProps) => {
                     </div>
                     <p className="text-sm font-normal mt-3 text-gray-300 flex justify-between">
                       {item.snippet.channelTitle}
-                      <span className="px-4">2.5M subscribers</span>
+                      {/* <span className="px-4">Subscribers count not available</span> */}
+                      <span className="px-4">{formatDistanceToNow(new Date(item.snippet.publishedAt))} ago</span>
                     </p>
-                    <p className="text-xs font-normal text-gray-300 flex justify-between mt-2">
-                      {}
-                      <span className="px-4">2 months ago</span>
-                    </p>
+                    {/* <p className="text-xs font-normal text-gray-300 flex justify-between mt-2">
+                      <span className="px-4">{formatDistanceToNow(new Date(item.snippet.publishedAt))} ago</span>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -98,6 +100,11 @@ export const SearchBox = ({ onSearch }: SearchBoxProps) => {
   const handleSearchIcon = () => {
     SetIsSearchopen(!isSearchOpen);
   };
+  const handlekeydown = (event: any) => {
+    if (event.key === "Enter") {
+      searchFunc();
+    } 
+  }
   return (
     <>
     { isSearchOpen ? "":
@@ -109,28 +116,30 @@ export const SearchBox = ({ onSearch }: SearchBoxProps) => {
       }
       {isSearchOpen ? (
         <>
-          <section className="md:hidden fixed bg-temp-clr ml-5">
+            <section className="md:hidden fixed bg-temp-clr ml-5">
             <input
               type="search"
-              className="w-72 h-10 bg-transparent border border-gray-400 text-white rounded-s-full outline-0 pl-4 appearance-none"
+              className="w-72 h-10 bg-transparent border border-gray-400 text-white text-xs rounded-s-full outline-0 pl-4 appearance-none"
               value={inputValue}
               onChange={handleInputChange}
+              onKeyDown={handlekeydown}
             ></input>
             <button className="p-4 " onClick={searchFunc}>
               <CiSearch />
             </button>
-          </section>
-          <section className="w-96 h-10 lg:flex flex-row items-center rounded-3xl outline outline-1 hidden">
+            </section>
+            <section className="w-96 h-10 lg:flex flex-row items-center rounded-3xl outline outline-1 hidden">
             <input
               type="search"
-              className="w-80 h-10 bg-transparent border border-gray-400 text-white rounded-s-full outline-0 pl-4 appearance-none"
+              className="w-80 h-10 bg-transparent border border-gray-400 text-white text-xs rounded-s-full outline-0 pl-4 appearance-none"
               value={inputValue}
               onChange={handleInputChange}
+              onKeyDown={handlekeydown}
             ></input>
             <button className="p-4 " onClick={searchFunc}>
               <CiSearch />
             </button>
-          </section>
+            </section>
         </>
       ) : (
         ""
